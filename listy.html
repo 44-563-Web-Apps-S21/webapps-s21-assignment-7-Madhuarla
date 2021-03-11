@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html> <head>
+    <title>
+        listy page
+    </title>
+     <style>
+    .flex-container {
+      display: flex;  flex-direction:row;
+      background-color: red;
+  }
+
+.flex-container > div {  /*div children of the flex container*/
+  background-color: #f1f1f1; 
+  margin: 10px;  padding: 20px;  font-size: 30px;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) { 
+	 .flex-container{
+		 flex-direction:column;
+		 background-color: green;
+	  }
+	}
+</style></head>
+
+
+<body>
+
+    <h2>Madhu Babu Arla builds a list</h2>
+
+    <input type="text" id="input" name="firstInput" placeholder="text"><br><br>
+		<div class="flex-container" id="target">
+		  <div class="listy">row item 1</div>   
+		  <div class="listy">row item 2</div>  
+		  <div class="listy">row item 3</div>  
+		</div>
+	
+	<p> Press the button to create an new element of type div and then add it to the container.
+		</p>
+		<button onclick="makeNewDiv()">Add one</button>
+
+</body>
+<script>
+  
+	function makeNewDiv(){
+		
+
+        var listyItems=document.getElementsByClassName("listy")
+        var low=0;
+        var high=listyItems.length;
+		let element = document.createElement("div")
+        element.setAttribute("class","listy")
+		element.innerHTML = document.getElementById("input").value;
+    
+        if(listyItems.length >9){
+            var j=0;
+            var i=0;
+              
+              for(var a of listyItems ){
+             
+                  if(a.innerHTML == document.getElementById("input").value){
+                    
+                    j=1;
+                    console.log("We are getting rid of duplicates.")
+                    listyItems[i].remove();
+                    i++;
+                  }
+
+              }
+              if(j == 0){
+                var rand=Math.floor(Math.random()*(high-low)+low)
+              
+                      listyItems[rand].remove();
+                      console.log("We get rid of the first item.")
+                  }
+                  
+        }
+        
+
+		
+		document.getElementById('target').appendChild(element)
+		
+	}
+</script>
+
+
+
+</html>	
