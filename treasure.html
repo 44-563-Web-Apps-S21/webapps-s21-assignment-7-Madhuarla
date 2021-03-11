@@ -17,43 +17,102 @@
 
 <div class="container">
     <div class="row">
-        <div><img src="treasure.jpg" width="150px" height="150px" ></div>
-        <div><img src="treasure.jpg" width="150px" height="150px" ></div>
-        <div><img src="treasure.jpg" width="150px" height="150px" ></div>
-        <div><img src="treasure.jpg" width="150px" height="150px" ></div>
-        <div><img src="treasure.jpg" width="150px" height="150px" ></div>
+        <div><img src="dustybook.jpg" width="150px" height="150px" id="i1" onclick="makeGuess(0)"></div>
+        <div><img src="dustybook.jpg" width="150px" height="150px" id="i2" onclick="makeGuess(1)"></div>
+        <div><img src="dustybook.jpg" width="150px" height="150px" id="i3" onclick="makeGuess(2)"></div>
+        <div><img src="dustybook.jpg" width="150px" height="150px" id="i4" onclick="makeGuess(3)"></div>
+        <div><img src="dustybook.jpg" width="150px" height="150px" id="i5" onclick="makeGuess(4)"></div>
     </div>
     <div class="row">
-        <div><img src="treasure.jpg" width="150px" height="150px" ></div>
-        <div><img src="treasure.jpg" width="150px" height="150px" ></div>
-        <div><img src="treasure.jpg" width="150px" height="150px" ></div>
-        <div><img src="treasure.jpg" width="150px" height="150px" ></div>
-        <div><img src="treasure.jpg" width="150px" height="150px" ></div>
+        <div><img src="dustybook.jpg" width="150px" height="150px" id="i6" onclick="makeGuess(5)"></div>
+        <div><img src="dustybook.jpg" width="150px" height="150px" id="i7" onclick="makeGuess(6)"></div>
+        <div><img src="dustybook.jpg" width="150px" height="150px" id="i8" onclick="makeGuess(7)"></div>
+        <div><img src="dustybook.jpg" width="150px" height="150px" id="i9" onclick="makeGuess(8)"></div>
+        <div><img src="dustybook.jpg" width="150px" height="150px" id="i10" onclick="makeGuess(9)"></div>
     </div>
     <div class="row">
-        <div><img src="treasure.jpg" width="150px" height="150px" ></div>
-        <div><img src="treasure.jpg" width="150px" height="150px" ></div>
-        <div><img src="treasure.jpg" width="150px" height="150px" ></div>
-        <div><img src="treasure.jpg" width="150px" height="150px" ></div>
-        <div><img src="treasure.jpg" width="150px" height="150px" ></div>
+        <div><img src="dustybook.jpg" width="150px" height="150px" id="i11" onclick="makeGuess(10)"></div>
+        <div><img src="dustybook.jpg" width="150px" height="150px" id="i12" onclick="makeGuess(11)"></div>
+        <div><img src="dustybook.jpg" width="150px" height="150px" id="i13" onclick="makeGuess(12)"></div>
+        <div><img src="dustybook.jpg" width="150px" height="150px" id="i14" onclick="makeGuess(13)"></div>
+        <div><img src="dustybook.jpg" width="150px" height="150px" id="i15" onclick="makeGuess(14)"></div>
     </div>
     <div class="row">
-        <div><img src="treasure.jpg" width="150px" height="150px" ></div>
-        <div><img src="treasure.jpg" width="150px" height="150px" ></div>
-        <div><img src="treasure.jpg" width="150px" height="150px" ></div>
-        <div><img src="treasure.jpg" width="150px" height="150px" ></div>
-        <div><img src="treasure.jpg" width="150px" height="150px" ></div>
+        <div><img src="dustybook.jpg" width="150px" height="150px" id="i16" onclick="makeGuess(15)"></div>
+        <div><img src="dustybook.jpg" width="150px" height="150px" id="i17" onclick="makeGuess(16)"></div>
+        <div><img src="dustybook.jpg" width="150px" height="150px" id="i18" onclick="makeGuess(17)"></div>
+        <div><img src="dustybook.jpg" width="150px" height="150px" id="i19" onclick="makeGuess(18)"></div>
+        <div><img src="dustybook.jpg" width="150px" height="150px" id="i20" onclick="makeGuess(19)"></div>
     </div>
     <div class="row">
-        <div><img src="treasure.jpg" width="150px" height="150px" ></div>
-        <div><img src="treasure.jpg" width="150px" height="150px" ></div>
-        <div><img src="treasure.jpg" width="150px" height="150px" ></div>
-        <div><img src="treasure.jpg" width="150px" height="150px" ></div>
-        <div><img src="treasure.jpg" width="150px" height="150px" ></div>
+        <div><img src="dustybook.jpg" width="150px" height="150px" id="i21" onclick="makeGuess(20)"></div>
+        <div><img src="dustybook.jpg" width="150px" height="150px" id="i22" onclick="makeGuess(21)"></div>
+        <div><img src="dustybook.jpg" width="150px" height="150px" id="i23" onclick="makeGuess(22)"></div>
+        <div><img src="dustybook.jpg" width="150px" height="150px" id="i24" onclick="makeGuess(23)"></div>
+        <div><img src="dustybook.jpg" width="150px" height="150px" id="i25" onclick="makeGuess(24)"></div>
     </div>
 
 
 </div>
+<script>
+    
+    var clickCount=0;
+    var treasureLocation=18;
+    var ids=["i1","i2","i3","i4","i5","i6","i7","i8","i9","i10","i11","i12","i13","i14","i15","i16","i17","i18","i19","i20","i21","i22","i23","i24","i25"];
+    var treasureLocation = getRandomIntInclusive(0,24);
+    console.log(treasureLocation);
+
+    function makeGuess(position){
+        id = ids[position]
+        imagePosition = document.getElementById(id)
+        if(position == treasureLocation){
+            imagePosition.src = "treasure.jpg"
+        }
+        else{
+            imagePosition.src = "emptybox.jpg"
+        }
+
+        clickCount++;
+
+        document.getElementById("clicks").innerHTML = "Number of clicks is" +clickCount+ ".";
+        document.getElementById("distance").innerHTML = "Distance is" +distance(position, treasureLocation) +".";  
+
+    }
+
+    function distance (pos1, pos2){
+        var arr = [
+            [0,1,2,3,4],
+            [5,6,7,8,9,],
+            [10,11,12,13,14],
+            [15,16,17,18,19],
+            [20,21,22,23,24]
+        ]
+         var a1=0, a2=0, b1=0, b2=0;
+         for(var i=0; i<5; i++){
+            for(var j=0; j<5; j++)
+            if(arr[i][j] == pos1){
+                a1 = i;
+                b1 = j;
+                break;
+            }
+        }
+
+        for(var i=0; i<5; i++){
+            for(var j=0; j<5; j++)
+            if(arr[i][j] == pos2){
+                a2 = i;
+                b2 = j;
+                break;
+            }
+        }
+
+        var dist = Math.abs(a2-a1) + Math.abs(b2-b1);
+        return dist;
+
+
+    }
+
+</script>
     
 
 
